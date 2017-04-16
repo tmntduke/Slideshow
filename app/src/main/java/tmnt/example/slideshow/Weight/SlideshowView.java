@@ -41,7 +41,7 @@ public class SlideshowView extends FrameLayout {
     private List<ImageBean> mViewList;
     private OnItemClickListener mOnItemClickListener;
     private Context mContext;
-    private int dotSize = 12;
+    private int dotSize = 14;
     private int dotSpace = 12;
     private Animator animatorToLarge;
     private Animator animatorToSmall;
@@ -189,6 +189,7 @@ public class SlideshowView extends FrameLayout {
                             animatorToLarge.setTarget(mLinearLayout.getChildAt(i));
                             animatorToLarge.start();
                             isLarge.put(i, true);
+                            Log.i(TAG, "onPageSelected: "+isLarge.size());
                         }
                     } else {// 未被选中
                         mLinearLayout.getChildAt(i).setBackgroundResource(R.drawable.unselect_shape);
@@ -196,6 +197,7 @@ public class SlideshowView extends FrameLayout {
                             animatorToSmall.setTarget(mLinearLayout.getChildAt(i));
                             animatorToSmall.start();
                             isLarge.put(i, false);
+                            Log.i(TAG, "onPageSelected: "+isLarge.size());
                         }
                     }
                 }
@@ -206,8 +208,8 @@ public class SlideshowView extends FrameLayout {
                 switch (state) {
                     case ViewPager.SCROLL_STATE_IDLE:
                         if (mViewPager.getCurrentItem() == 0) {
-                            mViewPager.setCurrentItem(count, false);
-                        } else if (mViewPager.getCurrentItem() == count - 1) {
+                            mViewPager.setCurrentItem(count-2, false);
+                        } else if (mViewPager.getCurrentItem() == count-1) {
                             mViewPager.setCurrentItem(1, false);
                         }
                         currentItem = mViewPager.getCurrentItem();

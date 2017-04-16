@@ -33,6 +33,4 @@ public class MainHolder implements Holder<String> {
         Log.i(TAG, "UpdateUI: "+data);
         Glide.with(context).load(data).into((ImageView) v);
     }
-
-
 }

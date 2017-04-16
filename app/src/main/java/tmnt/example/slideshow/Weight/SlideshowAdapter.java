@@ -59,7 +59,6 @@ public class SlideshowAdapter extends PagerAdapter {
         mHolder.UpdateUI(mContext, position, imageBean.getT(),imageView);
         container.addView(imageView);
 
-
         imageBean.getImageView().setOnClickListener(v -> {
             if (mOnItemClickListener != null) {
                 mOnItemClickListener.onItemClick(v, position);
